@@ -43,7 +43,7 @@ int main()
    //once created, display the scoreboard
     cout<<"SCOREBOARD"<<endl;
     for ( int row = 0; row < scoreboard.size(); row++ ) {
-        cout<<"Player "<<row + 1<<" : ";
+        cout<<"Player "<<row + 1<<": ";
         for ( int col = 0; col < scoreboard[row].size(); col++ ) {
             cout<<scoreboard[row][col]<<"|";
         }
