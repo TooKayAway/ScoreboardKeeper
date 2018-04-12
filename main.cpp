@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
@@ -19,8 +21,17 @@ void printScoreboard(vector < vector<int> > input ){
     }
 }
 
+int randomBetween(int first, int second ) {
+    if ( first > second ) {
+        return second + rand()%(first-second+1);
+    } else {
+        return first + rand()%(second-first+1);
+    }
+}
+
 int main()
 {
+  srand((int) time(0));
   int periods;
   int teams;
 
@@ -51,7 +62,13 @@ int main()
         }
     }
     printScoreboard(scoreboard);
-
+    
+    for ( int row = 0; row < scoreboard.size(); row++ ) {
+        for ( int col = 0; col < scoreboard[row].size(); col++ ) {
+            scoreboard[row][col] = randomBetween(5,5);
+        }
+    }
+    printScoreboard(scoreboard);
   }
   return 0;
 }
